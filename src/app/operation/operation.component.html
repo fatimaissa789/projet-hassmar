@@ -1,0 +1,158 @@
+
+
+
+
+<div class="container">
+  <section class="alerte">
+      <table>
+          <div class="nomalerte">
+              
+              <p>Nom alerte</p><br>
+              <p><b>Nom alerte</b></p>
+          </div>
+          <div class="date">
+              <p>10 decembre 2020</p><br>
+              <p><b>10 decembre 2020</b></p>
+          </div>
+          <div class="niveau">
+              <p>urgent</p><br>
+              <p><b>urgent</b></p>
+          </div>
+          <div class="destinataire">
+              <p>Destinataire</p><br>
+              <p><b>HASSMAR</b></p>
+              <p><b>Police Nationale</b></p>
+              <p><b>Marine Nationale</b></p>
+              <p><b>Direction des Douanes</b></p>
+              <p><b>Sapeurs Pompiers</b></p>
+          </div>
+          <div class="position">
+              <p>Position</p>
+              <p><b>Latitude 14,681</b></p>
+              <p><b>Longitude</b></p>
+          </div>
+
+      </table>
+  </section>
+  <section class="section">
+      <table>
+          <h4>Liste des participants</h4>
+          <div *ngFor="let row of operationData ">
+            <p> {{row.Nom}} {{row.Mot}} {{row.Email}} </p>
+          </div>
+          <p>Khadija FAYE (Police Nationale)</p>
+          
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Nouvelle invitation
+          </button>
+      </table>
+
+
+  </section>
+  <section>
+      <table>
+          <div class="section1">
+              <h4>Actions</h4>
+              <p><b>Intitule operation</b>12 decembre 2020 </p>
+          </div>
+
+          <div class="sections">
+              <div class="dates">
+                  <p>12/121/2020</p><br>
+                  <p>12/121/2020</p><br>
+                  <p>12/121/2020</p><br>
+                  <p>12/121/2020</p>
+              </div>
+              <span class="vertical"></span>
+              <div class="nom" >
+
+                  <p><b>Khadija FAYE</b> 10:15</p>
+
+                  <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui<br>
+                      blanditiis praesentium voluptatum deleniti atque corrupti quos<br>
+                      dolores et quas molestias excepturi sint occaecati cupiditate non <br>
+                      provident, similique sunt in culpa qui officia deserunt mollitia animi, id est <br>
+                      laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio</p>
+                  <p><b>Khadija FAYE</b> 10:15</p>
+                  <P>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium </P>
+                  <div *ngFor="let rows of operationData ">
+                  <p> {{rows.commentaire}}</p>
+                  <p> {{rows.fichier}}  </p>
+                  </div>
+                  <P>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium </P>
+              </div>
+                  <div class="image">
+                      <img src="assets/images/thumbnail.jpg" width="300" height="150">
+                  </div>
+                 
+                 <div>
+                <form><!-- <form [formGroup]="formValue"> -->
+                         <label for="action">Actions</label>
+                         <textarea name="action" id="action" formControlName="commentaire" cols="30" rows="2" placeholder="Ecrivez votre commentaire"></textarea>
+                         <br>
+                         <input type="file" formControlName="fichier">
+                         <br>
+                         <button class="btn btn-info text-center"  (click)="postOperationDetails()">Envoyer</button>
+                     </form>
+                
+              </div>
+
+
+          </div>
+      </table>
+  </section>
+
+  <!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <!-- <form [formGroup]="formValue"> --> <form>
+          <div class="row g-3 align-items-center m-3">
+              <div class="col-auto">
+                <label for="inputPassword6" class="col-form-label">Nom</label>
+              </div>
+              <div class="col-auto">
+                <input type="text" formControlName="Nom" id="text" class="form-control" aria-describedby="">
+              </div>
+            </div>
+            <div class="row g-3 align-items-center m-3">
+              <div class="col-auto">
+                <label for="inputPassword6" class="col-form-label">Mot </label>
+              </div>
+              <div class="col-auto">
+                <input type="text" formControlName="Mot" id="text" class="form-control" aria-describedby="">
+              </div>
+            </div>
+            <div class="row g-3 align-items-center m-3">
+              <div class="col-auto">
+                <label for="inputPassword6" class="col-form-label">Email </label>
+              </div>
+              <div class="col-auto">
+                <input type="text" formControlName="Email" id="text" class="form-control" aria-describedby="">
+              </div>
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" (click)="postOperationDetails()"  class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
